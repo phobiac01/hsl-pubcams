@@ -11,28 +11,36 @@ html, body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-
-  background-color: cadetblue;
+  background-color: rgb(119, 160, 95);
 }
 
 .Header {
   background-color: rgb(49, 49, 49);
   color: aliceblue;
   font-size: larger;
-
   display: flex;
   align-self: stretch;
   justify-content: left;
+}
+
+.PreText {
+  background-color: whitesmoke;
+  border-radius: 6px;
+  padding: 10px 30px;
 }
 
 .CamBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   border: 0.5px solid lime;
 }
 
 .CamView {
   margin: 20px;
+}
+
+.CamView img {
+  height: 225px;
+  min-height: 200px;
 }
