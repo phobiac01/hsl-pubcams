@@ -10,14 +10,12 @@ const feedRoot = [
   "https://live.heatsynclabs.org/snapshot.php?camera=4"
 ];
 
-function refreshFeeds(setFeeds) {
-  var newFeeds = feedRoot.map((feed) => {
-    return feed + "+" + Math.floor(Math.random() * Math.floor(99999));
-  });
-
+function refreshFeeds() {
   console.log("Refreshed Feeds");
 
-  return newFeeds;
+  return feedRoot.map((feed) => {
+    return feed + "+" + Math.floor(Math.random() * Math.floor(99999));
+  });
 }
 
 function App() {
@@ -40,12 +38,12 @@ function App() {
       </div>
       <div className="CamBox">
         <CameraView feed={feeds[2]}></CameraView>
-        <CameraView feed={feeds[3]}></CameraView>
+        {/* <CameraView feed={feeds[3]}></CameraView> */}
       </div>
 
       <div style={{ margin: 20 + "px" }} />
 
-      <div className="PreText">
+      <div className="PostText">
         <h2>HeatSync Labs Live Webcams</h2>
         <p>See if there are people in the lab!</p>
         <p>The camera views refresh at least every 10 seconds, though you may not be able to tell if nothing's moving.</p>
@@ -53,7 +51,6 @@ function App() {
         <br />
         <p>Nobody here? Check the HeatSyncStatus feed. See when the next event is scheduled at the HeatSync Website.</p>
       </div>
-
     </div>
   );
 }

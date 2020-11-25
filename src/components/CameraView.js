@@ -2,9 +2,11 @@
 function CameraView(props) {
     return (
         <div className="CamView">
-            <img src={props.feed}/>
+            <a href={props.feed}>
+                <img src={props.feed} />
+            </a>
         </div>
-    );    
+    );
 }
 
 export default CameraView;
