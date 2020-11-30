@@ -3,11 +3,12 @@ import CameraView from './components/CameraView';
 import Header from './components/Header';
 import React, { useEffect, useState } from 'react';
 
+
 const feedRoot = [
-  "https://live.heatsynclabs.org/snapshot.php?camera=1",
+  //"https://live.heatsynclabs.org/snapshot.php?camera=1",
   "https://live.heatsynclabs.org/snapshot.php?camera=2",
   //"https://live.heatsynclabs.org/snapshot.php?camera=3",
-  "https://live.heatsynclabs.org/snapshot.php?camera=4"
+  "https://live.heatsynclabs.org/snapshot.php?camera=4",
 ];
 
 function refreshFeeds() {
@@ -20,25 +21,28 @@ function refreshFeeds() {
 
 function App() {
   const [feeds, setFeeds] = useState(feedRoot);
+  const [isLive, setIsLive] = useState(true);
+
 
   useEffect(() => {
     setInterval(() => {
       setFeeds(refreshFeeds());
-    }, 10000);
+    }, 7000);
   }, []);
 
 
   return (
     <div className="App">
       <Header></Header>
+      <button onClick={() => {setIsLive(!isLive)}}>Toggle Live</button>
 
       <div className="CamBox">
-        <CameraView feed={feeds[0]}></CameraView>
-        <CameraView feed={feeds[1]}></CameraView>
+        <CameraView isLive={isLive} feed={feeds[0]}></CameraView>
+        <CameraView isLive={isLive} feed={feeds[1]}></CameraView>
       </div>
       <div className="CamBox">
-        <CameraView feed={feeds[2]}></CameraView>
-        {/* <CameraView feed={feeds[3]}></CameraView> */}
+        <CameraView isLive={isLive} feed={feeds[2]}></CameraView>
+        <CameraView isLive={isLive} feed={feeds[3]}></CameraView>
       </div>
 
       <div style={{ margin: 20 + "px" }} />
