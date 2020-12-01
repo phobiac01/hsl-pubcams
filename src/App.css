@@ -53,3 +53,9 @@ html, body {
   top: 25px;
   /* animation: breathing 5s ease-out infinite normal; */
 }
+
+.livtxt {
+  font-size: large;
+  font-weight: bold;
+  stroke: black;
+}
